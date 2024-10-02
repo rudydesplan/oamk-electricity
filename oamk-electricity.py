@@ -103,6 +103,19 @@ consumption_per_degree = filtered_data["Energy (kWh)"].sum() / filtered_data["Te
 # Line chart for consumption, bill, price, and temperature
 st.line_chart(filtered_data[['Energy (kWh)', 'Bill (EUR)', 'Price (cent/kWh)', 'Temperature']])
 
+# Separate graphs for each data line
+st.subheader('Energy Consumption (kWh)')
+st.line_chart(filtered_data['Energy (kWh)'])
+
+st.subheader('Bill (EUR)')
+st.line_chart(filtered_data['Bill (EUR)'])
+
+st.subheader('Price (cent/kWh)')
+st.line_chart(filtered_data['Price (cent/kWh)'])
+
+st.subheader('Temperature (°C)')
+st.line_chart(filtered_data['Temperature'])
+
 # Display some statistics
 st.write(f'Analysis from {start_date} to {end_date}')
 st.write(f'Total consumption: {filtered_data["Energy (kWh)"].sum()} kWh')
